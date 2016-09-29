@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="bodyCard" >
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/subtitle</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="headCard" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="headTitle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:lineSpacingMultiplier">0.5</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="subTitle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="contentBody" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>
