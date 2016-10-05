@@ -1,9 +1,11 @@
 package com.campusparty.android.economianaranja;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.campusparty.android.economianaranja.utils.CircleTransform;
 import com.squareup.picasso.Picasso;
@@ -15,6 +17,8 @@ public class SolutionsActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
+    @Bind(R.id.title)
+    TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +30,7 @@ public class SolutionsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         ImageView image = (ImageView) findViewById(R.id.image);
         Picasso.with(this).load("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAVSAAAAJDc1MWJkMTdkLTYyNzAtNDMxMy1iNDkzLTQ2MjJkNDQxYTllYw.jpg").fit().centerCrop().transform(new CircleTransform()).into(image);
+        name.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
+
     }
 }

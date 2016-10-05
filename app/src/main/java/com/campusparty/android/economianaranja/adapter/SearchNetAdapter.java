@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.campusparty.android.economianaranja.ProfileActivity;
 import com.campusparty.android.economianaranja.R;
 import com.campusparty.android.economianaranja.models.User;
+import com.campusparty.android.economianaranja.utils.CircleTransform;
 import com.campusparty.android.economianaranja.utils.DynamicHeightTransformation;
 import com.campusparty.android.economianaranja.utils.PaletteTransformation;
 import com.squareup.picasso.Callback;
@@ -71,6 +72,7 @@ public class SearchNetAdapter extends RecyclerView.Adapter<SearchNetAdapter.View
 
         // Get image with Picasso
         transformations.add(new DynamicHeightTransformation(300, false));
+        transformations.add(new CircleTransform());
         transformations.add(PaletteTransformation.instance());
         Picasso.with(mContext).load(URL).transform(transformations)
                 .transform(PaletteTransformation.instance()).tag(mContext).into(holder.mThumbnail, new Callback.EmptyCallback() {

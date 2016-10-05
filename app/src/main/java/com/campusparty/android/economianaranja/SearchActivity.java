@@ -39,8 +39,6 @@ public class SearchActivity extends AppCompatActivity
     KenBurnsView mHeaderImage;
     @Bind(R.id.collapsing_toolbar)
     CollapsingToolbarLayout mCollapsing;
-    @Bind(R.id.photo_protection)
-    View mPhotoProtection;
     @Bind(R.id.appbar)
     AppBarLayout mAppBar;
     @Bind(R.id.coordinator)

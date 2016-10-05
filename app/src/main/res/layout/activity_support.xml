@@ -19,7 +19,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="340dp"
+            android:layout_height="260dp"
             android:fitsSystemWindows="true"
             app:contentScrim="@android:color/transparent"
             app:expandedTitleMarginEnd="64dp"
