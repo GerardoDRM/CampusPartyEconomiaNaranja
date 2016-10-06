@@ -70,10 +70,10 @@ public class SearchActivity extends AppCompatActivity
         Picasso.with(this).load("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAVSAAAAJDc1MWJkMTdkLTYyNzAtNDMxMy1iNDkzLTQ2MjJkNDQxYTllYw.jpg").fit().centerCrop().transform(new CircleTransform()).into(image);
 
         // Tab View which has 3 sections
-        String[] mTitles = {"Perfiles", "Apoyos", "Retos"};
+        String[] mTitles = {"Perfiles", "Apoyos", "Retos", "Mapa de Apoyos"};
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         mCollapsing.setScrimsShown(false);
-        ViewPagerMenu mSectionsPagerAdapter = new ViewPagerMenu(getSupportFragmentManager(), mTitles, 3);
+        ViewPagerMenu mSectionsPagerAdapter = new ViewPagerMenu(getSupportFragmentManager(), mTitles, 4);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager.setAdapter(mSectionsPagerAdapter);

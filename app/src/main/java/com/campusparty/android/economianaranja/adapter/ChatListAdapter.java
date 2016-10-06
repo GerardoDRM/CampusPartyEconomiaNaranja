@@ -1,6 +1,7 @@
 package com.campusparty.android.economianaranja.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.campusparty.android.economianaranja.ChatRoom;
 import com.campusparty.android.economianaranja.R;
 import com.campusparty.android.economianaranja.models.User;
 import com.campusparty.android.economianaranja.utils.CircleTransform;
@@ -49,8 +51,8 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent i = new Intent(mContext, SupportActivity.class);
-//                mContext.startActivity(i);
+                Intent i = new Intent(mContext, ChatRoom.class);
+                mContext.startActivity(i);
 
             }
         });

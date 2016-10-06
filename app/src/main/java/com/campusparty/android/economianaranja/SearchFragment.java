@@ -1,6 +1,7 @@
 package com.campusparty.android.economianaranja;
 
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.campusparty.android.economianaranja.adapter.SearchNetAdapter;
 import com.campusparty.android.economianaranja.models.User;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -22,7 +24,8 @@ public class SearchFragment extends Fragment {
 
     @Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
-
+    @Bind(R.id.fab_opt)
+    FloatingActionButton mFab;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -42,6 +45,18 @@ public class SearchFragment extends Fragment {
 
         // Create Dummy Data on RecyvlerView
         setUpRecyclerView();
+        // Add button action
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Show filters
+                BottomSheetDialogFragment bottomSheetDialogFragment = new FilterActivity();
+                Bundle bundle = new Bundle();
+                bundle.putInt("FILTEROPT", 0);
+                bottomSheetDialogFragment.setArguments(bundle);
+                bottomSheetDialogFragment.show(getFragmentManager(), bottomSheetDialogFragment.getTag());
+            }
+        });
 
         return rootView;
     }

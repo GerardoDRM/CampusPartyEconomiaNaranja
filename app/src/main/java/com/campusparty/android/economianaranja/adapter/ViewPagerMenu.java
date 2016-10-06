@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.campusparty.android.economianaranja.MapFragment;
 import com.campusparty.android.economianaranja.SearchFragment;
 import com.campusparty.android.economianaranja.SolutionsFragment;
 import com.campusparty.android.economianaranja.SupportFragment;
@@ -36,6 +37,8 @@ public class ViewPagerMenu extends FragmentStatePagerAdapter {
                 return new SupportFragment();
             case 2:
                 return new SolutionsFragment();
+            case 3:
+                return new MapFragment();
             default:
                 return null;
         }

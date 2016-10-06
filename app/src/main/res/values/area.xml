@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="area_array">
+        <item>Tecnología</item>
+        <item>Artes Escénicas</item>
+        <item>Música</item>
+        <item>Artes Visuales</item>
+        <item>Arquitectura</item>
+        <item>Artesanía</item>
+        <item>Investigación</item>
+        <item>Videojuegos</item>
+
+    </string-array>
+</resources>

@@ -4,16 +4,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_face_black_24dp_2x"
             android:title="Relaciones" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_chat_black_24dp"
             android:title="Mensajes" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Proponer Proyecto" />
+            android:icon="@drawable/ic_import_contacts_black_24dp"
+            android:title="Proponer Solucion" />
     </group>
 
 

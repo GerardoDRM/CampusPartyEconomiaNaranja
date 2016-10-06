@@ -43,12 +43,12 @@
         <activity
             android:name=".SolutionsActivity"
             android:parentActivityName=".SearchActivity"
-
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ChatRoom"
             android:label="@string/title_activity_chat_room"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDV4oRSxxaP52OPiQtYZQB7EEoc8tDiu7E"/>
     </application>
 
 </manifest>

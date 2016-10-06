@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="users_array">
+        <item>Todos</item>
+        <item>Organizaciones</item>
+        <item>Empresas</item>
+        <item>Emprendedores</item>
+    </string-array>
+</resources>
