@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.campusparty.android.economianaranja">
+    package="com.craftcode.android.clicksocial">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".BoardActivity"
+            android:name="com.craftcode.android.clicksocial.BoardActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,36 +18,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SearchActivity"
+            android:name="com.craftcode.android.clicksocial.SearchActivity"
             android:label="@string/title_activity_search"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ConnectionsAcitvity"
-            android:parentActivityName=".SearchActivity"
+            android:name="com.craftcode.android.clicksocial.SuccessCaseActivity"
+            android:parentActivityName="com.craftcode.android.clicksocial.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MessagesListActivity"
-            android:parentActivityName=".SearchActivity"
+            android:name="com.craftcode.android.clicksocial.ConvocationActivity"
+            android:parentActivityName="com.craftcode.android.clicksocial.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ChatActivity"
+            android:name="com.craftcode.android.clicksocial.ChallengeActivity"
+            android:parentActivityName="com.craftcode.android.clicksocial.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ProfileActivity"
-            android:parentActivityName=".SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SupportActivity"
-            android:parentActivityName=".SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SolutionsActivity"
-            android:parentActivityName=".SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ChatRoom"
-            android:label="@string/title_activity_chat_room"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDV4oRSxxaP52OPiQtYZQB7EEoc8tDiu7E"/>
     </application>
 

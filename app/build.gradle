@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
 
     defaultConfig {
-        applicationId "com.campusparty.android.economianaranja"
+        applicationId "com.craftcode.android.economianaranja"
         minSdkVersion 18
         targetSdkVersion 25
         versionCode 1
