@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EconomiaNaranja</string>
+    <string name="app_name">ClickSocial</string>
     <string name="title_activity_search">SearchActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -10,4 +10,38 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_chat_room">ChatRoom</string>
+
+    <string name="missing_data">Hay datos faltantes</string>
+    <string name="error_wrong_email">Error en correo</string>
+    <string name="error_custom_login">Error al tratar de acceder</string>
+    <string name="error_custom_signin">Error al registrarse</string>
+    <string name="dialog_title_error">Ha ocurrido algo inesperado</string>
+    <string name="user_name">user_name</string>
+    <string name="active_account">status</string>
+    <string name="provider">provider</string>
+    <string name="no_internet">Sin Internet</string>
+    <string name="no_internet_title">Sin internet</string>
+    <string name="permission_required">Permiso requerido</string>
+    <string name="location_perm">location</string>
+    <string name="coarse_perm">coarse</string>
+    <string name="permission_never_ask">Permiso para</string>
+    <string name="stored">Guardados</string>
+    <string name="close_session">Cerrar Sesión</string>
+    <string name="cancel">Cancelar</string>
+    <string name="permission_explain_location">Permiso para ubicación</string>
+    <string name="permission_activation_location">Se necesita activar tu ubicación</string>
+    <string name="location_service">Servicios de localización</string>
+    <string name="location_msg">Porfavor enciende tu GPS para poder ubicarte</string>
+    <string name="activate">Activar</string>
+    <string name="not_data">Asegure llenar los campos correctamente</string>
+    <string name="op_complete">La operacion ha sido completada</string>
+    <string name="error">Se presentó un error porfavor intente nuevamente</string>
+    <string name="action_share">Share</string>
+    <string name="stored_label">Guardados</string>
+    <string name="profile_label">Perfil</string>
+    <string name="promo_label">Promo</string>
+    <string name="stored_filters">FIltros guardados</string>
+    <string name="contact_us">Contáctanos</string>
+    <string name="contact_us_msg">¿Te gustaría que tu establecimiento  contara con nuestros servicios?  \n\nMándanos un e-mail a proppapp@gmail.com y en menos de 24 horas estaremos  contestando cualquier duda.  \n\n¡Anímate!</string>
+    <string name="ok">ok</string>
 </resources>
