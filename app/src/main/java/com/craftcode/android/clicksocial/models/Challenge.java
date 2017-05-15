@@ -3,6 +3,8 @@ package com.craftcode.android.clicksocial.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 /**
  * Created by gerardo on 14/05/17.
  */
@@ -16,7 +18,7 @@ public class Challenge implements Parcelable{
     private String challenge;
     private String img;
     private int likes;
-    private Address address;
+    private ArrayList<Address> address;
 
     public String get_id() {
         return _id;
@@ -74,11 +76,11 @@ public class Challenge implements Parcelable{
         this.likes = likes;
     }
 
-    public Address getAddress() {
+    public ArrayList<Address> getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(ArrayList<Address> address) {
         this.address = address;
     }
 
@@ -90,7 +92,7 @@ public class Challenge implements Parcelable{
         creation_date = in.readLong();
         img = in.readString();
         likes = in.readInt();
-        address = in.readParcelable(Address.class.getClassLoader());
+        address = in.readArrayList(Address.class.getClassLoader());
     }
 
     @Override
@@ -102,7 +104,7 @@ public class Challenge implements Parcelable{
         dest.writeLong(creation_date);
         dest.writeString(img);
         dest.writeInt(likes);
-        dest.writeParcelable(address, flags);
+        dest.writeTypedList(address);
     }
 
     @Override

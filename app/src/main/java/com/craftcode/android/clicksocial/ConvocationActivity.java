@@ -7,6 +7,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,6 +80,7 @@ public class ConvocationActivity extends AppCompatActivity {
         }
     }
     private void setUp() {
+        Log.d("Error", "Setup");
         if (mConvocation != null) {
             createView();
         } else {
@@ -87,7 +89,6 @@ public class ConvocationActivity extends AppCompatActivity {
     }
 
     private void getInfo() {
-
         Call<Convocation> call = apiService.getConvocation(idpromo);
         call.enqueue(new Callback<Convocation>() {
 

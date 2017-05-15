@@ -7,6 +7,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.craftcode.android.clicksocial.utils.GeneralConst;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -101,6 +103,7 @@ public class ChallengeActivity extends AppCompatActivity {
             public void onResponse(Response<Challenge> response, Retrofit retrofit) {
                 int statusCode = response.code();
                 Challenge challenge = response.body();
+                Log.d("Error", challenge.getTitle() + "");
                 if (challenge == null) return;
                 mChallenge = challenge;
                 createView();
@@ -108,6 +111,8 @@ public class ChallengeActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
+                Log.d("Error", t.getMessage());
+
                 if (!GeneralConst.checkNetwork(getApplicationContext()))
                     GeneralConst.showMessageConnection(getApplicationContext());
             }
@@ -122,10 +127,12 @@ public class ChallengeActivity extends AppCompatActivity {
         mTitle.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
         mDescription.setText(mChallenge.getDescription());
-        Address address = mChallenge.getAddress();
-        mAddress.setText(address.getState() + "," + address.getCity());
+        ArrayList<Address> address = mChallenge.getAddress();
+        for(Address a : address) {
+            mAddress.setText(a.getState() + "," + a.getCity() + "\n");
+        }
         mChallengeTxt.setText(mChallenge.getChallenge());
-        mLikes.setText(mChallenge.getLikes());
+        mLikes.setText(String.valueOf(mChallenge.getLikes()));
 
         SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
