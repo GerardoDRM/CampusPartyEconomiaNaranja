@@ -2,6 +2,7 @@ package com.craftcode.android.clicksocial.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.craftcode.android.clicksocial.R;
 import com.craftcode.android.clicksocial.ChallengeActivity;
+import com.craftcode.android.clicksocial.R;
 import com.craftcode.android.clicksocial.models.Challenge;
+import com.craftcode.android.clicksocial.utils.GeneralConst;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -47,7 +49,7 @@ public class ChallengesListAdapter extends RecyclerView.Adapter<ChallengesListAd
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mTitle.setText(mChallenges.get(position).getTitle());
         holder.mDescription.setText(mChallenges.get(position).getDescription());
         Picasso.with(mContext).load(mChallenges.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
@@ -63,6 +65,9 @@ public class ChallengesListAdapter extends RecyclerView.Adapter<ChallengesListAd
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mContext, ChallengeActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString(GeneralConst.PROMO_KEY, mChallenges.get(position).get_id());
+                i.putExtras(mBundle);
                 mContext.startActivity(i);
             }
         });

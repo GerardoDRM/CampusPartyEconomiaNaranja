@@ -2,6 +2,7 @@ package com.craftcode.android.clicksocial.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.craftcode.android.clicksocial.ConvocationActivity;
 import com.craftcode.android.clicksocial.R;
 import com.craftcode.android.clicksocial.models.Convocation;
+import com.craftcode.android.clicksocial.utils.GeneralConst;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -46,7 +48,7 @@ public class ConvocationsListAdapter extends RecyclerView.Adapter<ConvocationsLi
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mTitle.setText(mConvocations.get(position).getTitle());
         holder.mDescription.setText(mConvocations.get(position).getDescription());
         Picasso.with(mContext).load(mConvocations.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
@@ -62,6 +64,9 @@ public class ConvocationsListAdapter extends RecyclerView.Adapter<ConvocationsLi
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mContext, ConvocationActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString(GeneralConst.PROMO_KEY, mConvocations.get(position).get_id());
+                i.putExtras(mBundle);
                 mContext.startActivity(i);
 
             }

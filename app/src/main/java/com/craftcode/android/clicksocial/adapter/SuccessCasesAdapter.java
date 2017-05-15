@@ -1,7 +1,6 @@
 package com.craftcode.android.clicksocial.adapter;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.transition.Explode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +19,7 @@ import com.craftcode.android.clicksocial.R;
 import com.craftcode.android.clicksocial.SuccessCaseActivity;
 import com.craftcode.android.clicksocial.models.SuccessCase;
 import com.craftcode.android.clicksocial.utils.DynamicHeightTransformation;
+import com.craftcode.android.clicksocial.utils.GeneralConst;
 import com.craftcode.android.clicksocial.utils.PaletteTransformation;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -100,16 +99,11 @@ public class SuccessCasesAdapter extends RecyclerView.Adapter<SuccessCasesAdapte
                                             public void onClick(View v) {
                                                 // create the shared transition animation
                                                 Intent intent = new Intent(mContext, SuccessCaseActivity.class);
+                                                Bundle mBundle = new Bundle();
+                                                mBundle.putString(GeneralConst.PROMO_KEY, mCases.get(position).get_id());
+                                                intent.putExtras(mBundle);
+                                                mContext.startActivity(intent);
 
-                                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                                                    mActivity.getWindow().setExitTransition(new Explode());
-                                                    Bundle bundle = ActivityOptions
-                                                            .makeSceneTransitionAnimation(mActivity).toBundle();
-
-                                                    mContext.startActivity(intent, bundle);
-                                                } else {
-                                                    mContext.startActivity(intent);
-                                                }
                                             }
                                         }
 
