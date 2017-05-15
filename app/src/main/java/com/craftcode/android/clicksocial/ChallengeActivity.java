@@ -88,11 +88,11 @@ public class ChallengeActivity extends AppCompatActivity {
         if (mChallenge != null) {
             createView();
         } else {
-            getPromoInfo();
+            getInfo();
         }
     }
 
-    private void getPromoInfo() {
+    private void getInfo() {
 
         Call<Challenge> call = apiService.getChallenge(idpromo);
         call.enqueue(new Callback<Challenge>() {

@@ -65,6 +65,13 @@ public class Convocation implements Parcelable{
     }
 
 
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
 
     protected Convocation(Parcel in) {
         _id = in.readString();
