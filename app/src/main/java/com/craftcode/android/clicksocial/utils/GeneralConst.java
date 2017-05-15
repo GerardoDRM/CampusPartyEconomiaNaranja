@@ -34,7 +34,7 @@ public class GeneralConst {
     public static final String BUDGET_MIN_KEY = "MIN_BUDGET";
     public static final String BEACON_KEY = "BEACON";
     public static final String FROMCARD = "FROMCARD";
-    public static String BASE_URL = "http://www.clicksocial.com/";
+    public static String BASE_URL = "http://www.clicksocial.mx/";
     public static String PROMO_KEY = "PROMO";
     public static String RESTAURANT_URI = "URI";
     public static String RESTAURANT_CLOSED = "Closed";

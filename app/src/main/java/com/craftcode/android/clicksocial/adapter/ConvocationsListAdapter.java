@@ -82,9 +82,9 @@ public class ConvocationsListAdapter extends RecyclerView.Adapter<ConvocationsLi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.event_title)
+        @Bind(R.id.title)
         TextView mTitle;
-        @Bind(R.id.event_description) TextView mDescription;
+        @Bind(R.id.description) TextView mDescription;
         @Bind(R.id.thumbnail)
         ImageView mThumbnail;
         @Bind(R.id.creation)

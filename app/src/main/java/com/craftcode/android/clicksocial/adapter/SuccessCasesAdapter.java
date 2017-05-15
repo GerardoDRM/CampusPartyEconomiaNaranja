@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.craftcode.android.clicksocial.R;
 import com.craftcode.android.clicksocial.SuccessCaseActivity;
 import com.craftcode.android.clicksocial.models.SuccessCase;
-import com.craftcode.android.clicksocial.utils.CircleTransform;
 import com.craftcode.android.clicksocial.utils.DynamicHeightTransformation;
 import com.craftcode.android.clicksocial.utils.PaletteTransformation;
 import com.squareup.picasso.Callback;
@@ -81,7 +80,6 @@ public class SuccessCasesAdapter extends RecyclerView.Adapter<SuccessCasesAdapte
 
         // Get image with Picasso
         transformations.add(new DynamicHeightTransformation(300, false));
-        transformations.add(new CircleTransform());
         transformations.add(PaletteTransformation.instance());
         Picasso.with(mContext).load(URL).transform(transformations)
                 .transform(PaletteTransformation.instance()).tag(mContext).into(holder.mThumbnail, new Callback.EmptyCallback() {

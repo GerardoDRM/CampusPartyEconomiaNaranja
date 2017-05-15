@@ -12,10 +12,10 @@ import retrofit.http.Path;
  */
 public interface SuccessCases {
 
-    @GET("api/v0/challenges")
+    @GET("api/v0/stories")
     Call<SuccessCaseResults> getSuccessCases();
 
-    @GET("api/v0/challenges/{id}")
+    @GET("api/v0/stories/{id}")
     Call<SuccessCase> getSuccessCase(@Path("id") String id);
 
 }

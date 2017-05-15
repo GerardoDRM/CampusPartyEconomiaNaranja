@@ -73,7 +73,7 @@ public class ChallengesFragment extends Fragment {
 
         // Create recycler view with dynamic height behavior
         final StaggeredGridLayoutManager grid =
-                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
 
         mRecyclerView.setLayoutManager(grid);
         mRecyclerView.setHasFixedSize(true);

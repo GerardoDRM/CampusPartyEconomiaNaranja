@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,6 +90,7 @@ public class SuccessCasesFragment extends Fragment {
 
         if (mCases == null) {
             mCases = new ArrayList<SuccessCase>();
+            Log.d("ERROR", "ERROR");
             getSuccessCases();
         }
 
@@ -108,11 +110,13 @@ public class SuccessCasesFragment extends Fragment {
                 if (mcases == null) return;
                 mCases.addAll(mcases.getResults());
                 ArrayList<SuccessCase> tmpPromo = new ArrayList<SuccessCase>(mCases);
+                Log.d("ERROR", tmpPromo.size() + "");
                 adapter.refill(tmpPromo);
             }
 
             @Override
             public void onFailure(Throwable t) {
+                Log.d("ERORRR", t.getMessage());
                 if (!GeneralConst.checkNetwork(getContext()))
                     GeneralConst.showMessageConnection(getContext());
             }

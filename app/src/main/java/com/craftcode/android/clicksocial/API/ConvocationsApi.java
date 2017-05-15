@@ -12,10 +12,10 @@ import retrofit.http.Path;
  */
 public interface ConvocationsApi {
 
-    @GET("api/v0/challenges")
+    @GET("api/v0/convocations")
     Call<ConvocationResults> getConvocations();
 
-    @GET("api/v0/challenges/{id}")
+    @GET("api/v0/convocations/{id}")
     Call<Convocation> getConvocation(@Path("id") String id);
 
 }

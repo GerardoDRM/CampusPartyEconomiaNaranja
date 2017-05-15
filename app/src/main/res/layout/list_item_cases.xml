@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="120dp"
             android:adjustViewBounds="true"
             android:layout_gravity="center"
@@ -61,14 +61,15 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="8dp">
             <TextView
                 android:id="@+id/description"
                 style="@style/bodyCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:maxLines="3" />
+                android:maxLines="2" />
 
         </RelativeLayout>
     </LinearLayout>

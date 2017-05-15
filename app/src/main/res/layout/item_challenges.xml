@@ -17,7 +17,7 @@
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="120dp"
+            android:layout_width="160dp"
             android:layout_height="match_parent" />
 
         <RelativeLayout
@@ -29,13 +29,15 @@
                 style="@style/headTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingStart="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="4dp"
+                android:lineSpacingExtra="18sp"
                 android:paddingBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingStart="8dp"
+
+                android:paddingTop="4dp"
                 android:textColor="@color/black_semi_transparent"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
 
             <ImageView
@@ -74,7 +76,7 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:textSize="14sp"
-                android:maxLines="3"
+                android:maxLines="2"
                 android:textColor="@color/black_semi_transparent"
                 android:layout_below="@+id/creation"
                 android:layout_alignParentLeft="true"
@@ -89,7 +91,7 @@
                 android:background="@android:color/transparent"
                 android:textColor="@color/colorAccent"
                 android:layout_gravity="right"
-                android:layout_below="@+id/creation"
+                android:layout_below="@+id/description"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp" />

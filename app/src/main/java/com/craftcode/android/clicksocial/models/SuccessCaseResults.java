@@ -12,14 +12,14 @@ import java.util.List;
 
 public class SuccessCaseResults implements Parcelable{
 
-    private List<SuccessCase> cases = new ArrayList<SuccessCase>();
+    private List<SuccessCase> stories = new ArrayList<SuccessCase>();
 
     protected SuccessCaseResults(Parcel in) {
-        cases = in.createTypedArrayList(SuccessCase.CREATOR);
+        stories = in.createTypedArrayList(SuccessCase.CREATOR);
     }
 
     public List<SuccessCase> getResults() {
-        return cases;
+        return stories;
     }
 
 
@@ -42,6 +42,6 @@ public class SuccessCaseResults implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedList(cases);
+        parcel.writeTypedList(stories);
     }
 }
