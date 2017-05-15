@@ -12,10 +12,14 @@ import android.widget.TextView;
 
 import com.craftcode.android.clicksocial.R;
 import com.craftcode.android.clicksocial.ChallengeActivity;
-import com.craftcode.android.clicksocial.models.Solutions;
+import com.craftcode.android.clicksocial.models.Challenge;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,31 +28,36 @@ import butterknife.ButterKnife;
  * Dummy adapter for Campus Party contest
  * This Adapter create instances on recyclerview
  */
-public class SolutionsListAdapter extends RecyclerView.Adapter<SolutionsListAdapter.ViewHolder> {
+public class ChallengesListAdapter extends RecyclerView.Adapter<ChallengesListAdapter.ViewHolder> {
 
     private Context mContext;
-    private ArrayList<Solutions> mSolutions;
+    private ArrayList<Challenge> mChallenges;
 
-    public SolutionsListAdapter(Context context, ArrayList<Solutions> solution) {
+    public ChallengesListAdapter(Context context, ArrayList<Challenge> challenges) {
         this.mContext = context;
-        this.mSolutions = solution;
+        this.mChallenges = challenges;
     }
 
     @Override
-    public SolutionsListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ChallengesListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_solutions, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_challenges, parent, false);
         view.setFocusable(true);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mTitle.setText(mSolutions.get(position).getName());
-        holder.mDescription.setText(mSolutions.get(position).getDescription());
-        Picasso.with(mContext).load(mSolutions.get(position).getImage()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
+        holder.mTitle.setText(mChallenges.get(position).getTitle());
+        holder.mDescription.setText(mChallenges.get(position).getDescription());
+        Picasso.with(mContext).load(mChallenges.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
 
-        holder.mMembers.setText(String.valueOf(mSolutions.get(position).getMembers()));
+        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+        sds.setTimeZone(TimeZone.getDefault());
+        long event_date = mChallenges.get(position).getCreation_date();
+        final Date date_s = new Date(event_date * 1000L);
+        holder.mCreation.setText(sds.format(date_s));
 
         holder.mGoTo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,21 +70,27 @@ public class SolutionsListAdapter extends RecyclerView.Adapter<SolutionsListAdap
 
     @Override
     public int getItemCount() {
-        return mSolutions.size();
+        return mChallenges.size();
+    }
+
+    public void refill(List<Challenge> challenges) {
+        mChallenges.clear();
+        mChallenges.addAll(challenges);
+        notifyDataSetChanged();
     }
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.event_title)
+        @Bind(R.id.title)
         TextView mTitle;
-        @Bind(R.id.event_description) TextView mDescription;
+        @Bind(R.id.description) TextView mDescription;
         @Bind(R.id.thumbnail)
         ImageView mThumbnail;
-        @Bind(R.id.about_event)
+        @Bind(R.id.btn_challenges)
         Button mGoTo;
-        @Bind(R.id.event_members)
-        TextView mMembers;
+        @Bind(R.id.creation)
+        TextView mCreation;
         public View mView;
 
         public ViewHolder(View itemView) {

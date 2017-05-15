@@ -7,26 +7,25 @@
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
     android:clickable="false"
-    android:focusable="true"
-    android:foreground="?selectableItemBackground">
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         >
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"/>
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/event_title"
+                android:id="@+id/title"
                 style="@style/headTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,11 +34,37 @@
                 android:paddingRight="8dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
-                android:text="Test"/>
+                android:textColor="@color/black_semi_transparent"
+                android:textSize="24sp"/>
+
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_chat_black_24dp"
+                android:tint="@color/black_semi_transparent"
+                android:id="@+id/imageView6"
+                android:layout_below="@+id/title"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp" />
+
             <TextView
-                android:id="@+id/event_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/creation"
+                android:paddingLeft="8dp"
+                android:paddingStart="8dp"
+                android:paddingRight="8dp"
+                android:layout_alignBottom="@+id/imageView6"
+                android:layout_toRightOf="@+id/imageView6"
+                android:layout_toEndOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/contentBody"
@@ -49,56 +74,21 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:textSize="14sp"
-                android:textColor="@android:color/black"
-                android:text=""
-                android:layout_below="@+id/event_title"
+                android:textColor="@color/black_semi_transparent"
+                android:layout_below="@+id/creation"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <LinearLayout
-                android:id="@+id/partners"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/event_description"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    style="@style/contentBody"
-                    android:text="Participantes:"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/black"
-                    />
-                <TextView
-                    android:id="@+id/event_members"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/contentBody"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/black"
-                    android:text="" />
-
-
-            </LinearLayout>
-
-
-
 
             <Button
+                android:id="@+id/btn_challenges"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Checar Soluciones"
-                android:id="@+id/about_event"
+                android:text="@string/btn_challenge"
                 android:background="@android:color/transparent"
                 android:textColor="@color/colorAccent"
                 android:layout_gravity="right"
-                android:layout_below="@+id/partners"
+                android:layout_below="@+id/creation"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp" />

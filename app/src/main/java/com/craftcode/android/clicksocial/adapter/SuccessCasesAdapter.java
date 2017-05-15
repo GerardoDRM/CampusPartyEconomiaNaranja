@@ -37,7 +37,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Dummy adapter for Campus Party contest
  * This Adapter create instances on recyclerview
  */
 public class SuccessCasesAdapter extends RecyclerView.Adapter<SuccessCasesAdapter.ViewHolder> {

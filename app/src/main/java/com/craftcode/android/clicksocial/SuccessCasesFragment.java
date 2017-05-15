@@ -20,6 +20,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import retrofit.Call;
 import retrofit.Callback;
+import retrofit.GsonConverterFactory;
 import retrofit.Response;
 import retrofit.Retrofit;
 
@@ -37,6 +38,14 @@ public class SuccessCasesFragment extends Fragment {
 
     public SuccessCasesFragment() {
         // Required empty public constructor
+        this.BASE_URL = GeneralConst.BASE_URL;
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        apiService = retrofit.create(SuccessCases.class);
+
     }
 
     @Override
@@ -63,7 +72,7 @@ public class SuccessCasesFragment extends Fragment {
      */
     private void setUpRecyclerView() {
         // Create Adapter in order to create list with fake data
-        SuccessCasesAdapter adapter = new SuccessCasesAdapter(getContext(), new ArrayList<SuccessCase>(), getActivity());
+        adapter = new SuccessCasesAdapter(getContext(), new ArrayList<SuccessCase>(), getActivity());
 
         // Create recycler view with dynamic height behavior
         final StaggeredGridLayoutManager grid =
@@ -82,8 +91,6 @@ public class SuccessCasesFragment extends Fragment {
             mCases = new ArrayList<SuccessCase>();
             getSuccessCases();
         }
-
-
 
 
     }

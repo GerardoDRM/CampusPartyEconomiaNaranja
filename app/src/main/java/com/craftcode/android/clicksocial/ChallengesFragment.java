@@ -1,32 +1,49 @@
 package com.craftcode.android.clicksocial;
 
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.craftcode.android.clicksocial.adapter.SolutionsListAdapter;
-import com.craftcode.android.clicksocial.models.Solutions;
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.craftcode.android.clicksocial.API.ChallengeApi;
+import com.craftcode.android.clicksocial.adapter.ChallengesListAdapter;
+import com.craftcode.android.clicksocial.models.Challenge;
+import com.craftcode.android.clicksocial.models.ChallengeResults;
+import com.craftcode.android.clicksocial.utils.GeneralConst;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 
 public class ChallengesFragment extends Fragment {
+    private String BASE_URL;
+    private ChallengeApi apiService;
+    private ChallengesListAdapter adapter;
     @Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
-    @Bind(R.id.fab_opt)
-    FloatingActionButton mFab;
+    private ArrayList<Challenge> mChallenges;
+
 
     public ChallengesFragment() {
         // Required empty public constructor
+        this.BASE_URL = GeneralConst.BASE_URL;
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        apiService = retrofit.create(ChallengeApi.class);
+
     }
 
     @Override
@@ -41,55 +58,59 @@ public class ChallengesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
         ButterKnife.bind(this, rootView);
 
-        // Create Dummy Data on RecyvlerView
-        setUpSolutionsList();
-        // Add button action
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Show filters
-                BottomSheetDialogFragment bottomSheetDialogFragment = new FilterActivity();
-                Bundle bundle = new Bundle();
-                bundle.putInt("FILTEROPT", 2);
-                bottomSheetDialogFragment.setArguments(bundle);
-                bottomSheetDialogFragment.show(getFragmentManager(), bottomSheetDialogFragment.getTag());
-            }
-        });
-
-
+        // Create RecyclerView
+        setUpData();
         return rootView;
     }
 
     /**
      * This method create Dummy list of solutions
      */
-    private void setUpSolutionsList() {
+    private void setUpData() {
 
-// In order to create a dummy data we use a loop
-        ArrayList<Solutions> solutions = new ArrayList<Solutions>();
-        String[] urls = {
-                "http://www.portafolio.co/files/article_main/uploads/2016/02/04/56b3fc9430d7b.jpeg",
-                "http://images.hoy.com.py/uploads/41358/1596116_10201597057705239_632663031_o__destacado.jpeg",
-                "http://inspercom.org/wp-content/uploads/fgfgfgf1-2y4lkyr04cac85kbzm7z7u.png"
-        };
-
-        for (int i=0; i<5; i++) {
-            solutions.add(new Solutions("Problematica " + i, "Descripcion", (int)(Math.random() * (100-1) + 1), urls[(int)(Math.random() * (3) + 0)]));
-        }
         // Create Adapter in order to create list with fake data
-        SolutionsListAdapter adapter = new SolutionsListAdapter(getContext(), solutions);
-
+         adapter = new ChallengesListAdapter(getContext(), new ArrayList<Challenge>());
 
         // Create recycler view with dynamic height behavior
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        final StaggeredGridLayoutManager grid =
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(grid);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemViewCacheSize(20);
         mRecyclerView.setDrawingCacheEnabled(true);
         mRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        mRecyclerView.setLayoutManager(grid);
 
         mRecyclerView.setAdapter(adapter);
+
+        if (mChallenges == null) {
+            mChallenges = new ArrayList<Challenge>();
+            getChallenges();
+        }
+
+    }
+
+    private void getChallenges() {
+        Call<ChallengeResults> call = apiService.getChallenges();
+        call.enqueue(new Callback<ChallengeResults>() {
+
+            @Override
+            public void onResponse(Response<ChallengeResults> response, Retrofit retrofit) {
+                int statusCode = response.code();
+                ChallengeResults challenges = response.body();
+                if (challenges == null) return;
+                mChallenges.addAll(challenges.getResults());
+                ArrayList<Challenge> tmpPromo = new ArrayList<Challenge>(mChallenges);
+                adapter.refill(tmpPromo);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                if (!GeneralConst.checkNetwork(getContext()))
+                    GeneralConst.showMessageConnection(getContext());
+            }
+        });
 
     }
 

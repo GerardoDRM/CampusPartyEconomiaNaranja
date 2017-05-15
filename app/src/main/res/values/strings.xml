@@ -47,4 +47,5 @@
     <string name="app_title">Click Social</string>
     <string name="slogan">Integrando comunidades</string>
     <string name="developer">Powered by CraftCode</string>
+    <string name="btn_challenge">Ver Reto</string>
 </resources>
