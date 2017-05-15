@@ -23,7 +23,7 @@
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/title"
             style="@style/headCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:id="@+id/imageView3" />
 
             <TextView
-                android:id="@+id/user_career"
+                android:id="@+id/creation"
                 style="@style/bodyCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,26 +62,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:paddingLeft="8dp"
-                android:paddingStart="8dp"
-                android:paddingRight="8dp"
-                android:paddingEnd="8dp"
-                android:src="@drawable/ic_face_black_24dp_2x"
-                android:tint="@android:color/white"
-                android:id="@+id/imageView2" />
-
             <TextView
-                android:id="@+id/user_model"
+                android:id="@+id/description"
                 style="@style/bodyCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:maxLines="1"
-                android:layout_toEndOf="@+id/imageView2" />
+                android:maxLines="3" />
 
         </RelativeLayout>
     </LinearLayout>

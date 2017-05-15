@@ -1,4 +1,4 @@
-package com.campusparty.android.economianaranja.adapter;
+package com.craftcode.android.clicksocial.adapter;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -17,18 +17,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.campusparty.android.economianaranja.ProfileActivity;
-import com.campusparty.android.economianaranja.R;
-import com.campusparty.android.economianaranja.models.User;
-import com.campusparty.android.economianaranja.utils.CircleTransform;
-import com.campusparty.android.economianaranja.utils.DynamicHeightTransformation;
-import com.campusparty.android.economianaranja.utils.PaletteTransformation;
+import com.craftcode.android.clicksocial.R;
+import com.craftcode.android.clicksocial.SuccessCaseActivity;
+import com.craftcode.android.clicksocial.models.SuccessCase;
+import com.craftcode.android.clicksocial.utils.CircleTransform;
+import com.craftcode.android.clicksocial.utils.DynamicHeightTransformation;
+import com.craftcode.android.clicksocial.utils.PaletteTransformation;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,24 +40,24 @@ import butterknife.ButterKnife;
  * Dummy adapter for Campus Party contest
  * This Adapter create instances on recyclerview
  */
-public class SearchNetAdapter extends RecyclerView.Adapter<SearchNetAdapter.ViewHolder> {
+public class SuccessCasesAdapter extends RecyclerView.Adapter<SuccessCasesAdapter.ViewHolder> {
 
     private Context mContext;
     private Activity mActivity;
-    private ArrayList<User> mUser;
+    private ArrayList<SuccessCase> mCases;
 
 
-    public SearchNetAdapter(Context context, ArrayList<User> users, Activity activity) {
+    public SuccessCasesAdapter(Context context, ArrayList<SuccessCase> mcase, Activity activity) {
         this.mContext = context;
-        this.mUser = users;
+        this.mCases = mcase;
         this.mActivity = activity;
     }
 
     @Override
-    public SearchNetAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SuccessCasesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (parent instanceof RecyclerView) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_users, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_cases, parent, false);
             view.setFocusable(true);
             return new ViewHolder(view);
         } else {
@@ -63,12 +66,19 @@ public class SearchNetAdapter extends RecyclerView.Adapter<SearchNetAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(final SearchNetAdapter.ViewHolder holder, final int position) {
-        holder.mName.setText(mUser.get(position).getName());
-        holder.mCareer.setText(mUser.get(position).getCareer());
-        holder.mModel.setText(mUser.get(position).getModel());
+    public void onBindViewHolder(final SuccessCasesAdapter.ViewHolder holder, final int position) {
+        holder.mTitle.setText(mCases.get(position).getTitle());
+        holder.mDrescription.setText(mCases.get(position).getDescription());
+
+        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+        sds.setTimeZone(TimeZone.getDefault());
+        long event_date = mCases.get(position).getCreation_date();
+        final Date date_s = new Date(event_date * 1000L);
+
+        holder.mCreation.setText(sds.format(date_s));
         List<Transformation> transformations = new ArrayList<>();
-        String URL = mUser.get(position).getImage();
+        String URL = mCases.get(position).getImg();
 
         // Get image with Picasso
         transformations.add(new DynamicHeightTransformation(300, false));
@@ -92,7 +102,7 @@ public class SearchNetAdapter extends RecyclerView.Adapter<SearchNetAdapter.View
                                             @Override
                                             public void onClick(View v) {
                                                 // create the shared transition animation
-                                                Intent intent = new Intent(mContext, ProfileActivity.class);
+                                                Intent intent = new Intent(mContext, SuccessCaseActivity.class);
 
                                                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                                                     mActivity.getWindow().setExitTransition(new Explode());
@@ -110,19 +120,27 @@ public class SearchNetAdapter extends RecyclerView.Adapter<SearchNetAdapter.View
     }
 
 
+
+    public void refill(List<SuccessCase> mcases) {
+        mCases.clear();
+        mCases.addAll(mcases);
+        notifyDataSetChanged();
+    }
+
+
     @Override
     public int getItemCount() {
-        return mUser.size();
+        return mCases.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.user_name)
-        TextView mName;
-        @Bind(R.id.user_career)
-        TextView mCareer;
-        @Bind(R.id.user_model)
-        TextView mModel;
+        @Bind(R.id.title)
+        TextView mTitle;
+        @Bind(R.id.creation)
+        TextView mCreation;
+        @Bind(R.id.description)
+        TextView mDrescription;
         @Bind(R.id.thumbnail)
         ImageView mThumbnail;
         public View mView;

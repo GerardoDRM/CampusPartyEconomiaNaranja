@@ -61,7 +61,7 @@ public class SearchActivity extends AppCompatActivity {
         String[] mTitles = {"Historias", "Convocatorias", "Retos"};
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         mCollapsing.setScrimsShown(false);
-        ViewPagerMenu mSectionsPagerAdapter = new ViewPagerMenu(getSupportFragmentManager(), mTitles, 4);
+        ViewPagerMenu mSectionsPagerAdapter = new ViewPagerMenu(getSupportFragmentManager(), mTitles, 3);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager.setAdapter(mSectionsPagerAdapter);
