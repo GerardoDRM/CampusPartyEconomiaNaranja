@@ -103,6 +103,7 @@ public class ConvocationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
+                Log.d("DATA", t.getMessage());
                 if (!GeneralConst.checkNetwork(getApplicationContext()))
                     GeneralConst.showMessageConnection(getApplicationContext());
             }

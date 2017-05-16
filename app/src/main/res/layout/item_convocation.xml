@@ -26,7 +26,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.6"
+            android:alpha="0.7"
             android:background="@color/colorPrimary"/>
 
         <LinearLayout
@@ -52,7 +52,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_chat_black_24dp"
+                    android:src="@drawable/ic_date_range_white_24dp"
                     android:paddingLeft="8dp"
                     android:paddingStart="8dp"
                     android:paddingRight="8dp"
@@ -83,6 +83,7 @@
                     android:paddingStart="8dp"
                     android:paddingRight="8dp"
                     android:paddingEnd="8dp"
+                    android:tint="@android:color/white"
                     android:id="@+id/imageView4"/>
 
                 <TextView

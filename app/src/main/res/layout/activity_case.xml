@@ -97,7 +97,7 @@
                         android:id="@+id/creation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_face_black_24dp_2x"
+                        android:drawableStart="@drawable/ic_today_black_24dp"
                         style="@style/subTitle"
                         android:textColor="@color/cardview_dark_background"
                         android:drawablePadding="@dimen/activity_horizontal_margin"

@@ -43,7 +43,7 @@
                 android:paddingStart="8dp"
                 android:paddingRight="8dp"
                 android:paddingEnd="8dp"
-                android:src="@drawable/ic_work_black_24dp_2x"
+                android:src="@drawable/ic_today_black_24dp"
                 android:tint="@android:color/white"
                 android:id="@+id/imageView3" />
 
