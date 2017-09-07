@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -166,5 +167,23 @@ public class GeneralConst {
                 });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+
+    public static void setFirstTimeLaunch(SharedPreferences sharedPref, boolean isFirstTime) {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(LAUNCH_KEY, isFirstTime);
+        editor.apply();
+    }
+
+    public static SharedPreferences getPreferences(Context context) {
+
+        return context.getSharedPreferences(
+                context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+    }
+
+    public static boolean isFirstTimeLaunch(Context context) {
+        SharedPreferences sharedPreferences = getPreferences(context);
+        return sharedPreferences.getBoolean(LAUNCH_KEY, true);
     }
 }
