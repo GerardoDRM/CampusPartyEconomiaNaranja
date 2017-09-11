@@ -11,4 +11,13 @@
 
     <color name="green400">#9CCC65</color>
     <color name="green200">#C5E1A5</color>
+
+
+    <!--Cards colors-->
+    <color name="investigation">#009688</color>
+    <color name="prof">#795548</color>
+    <color name="gender">#607d8b</color>
+    <color name="food">#ffc107</color>
+    <color name="include">#304ffe</color>
+    <color name="integral">#2962ff</color>
 </resources>

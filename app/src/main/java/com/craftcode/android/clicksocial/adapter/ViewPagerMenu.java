@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.craftcode.android.clicksocial.ChallengesFragment;
 import com.craftcode.android.clicksocial.ConvocationsFragment;
+import com.craftcode.android.clicksocial.DirectoryFragment;
+import com.craftcode.android.clicksocial.OrganizationsFragment;
 import com.craftcode.android.clicksocial.SuccessCasesFragment;
 
 
@@ -33,8 +35,12 @@ public class ViewPagerMenu extends FragmentStatePagerAdapter {
             case 0:
                 return new SuccessCasesFragment();
             case 1:
-                return new ConvocationsFragment();
+                return new OrganizationsFragment();
             case 2:
+                return new DirectoryFragment();
+            case 3:
+                return new ConvocationsFragment();
+            case 4:
                 return new ChallengesFragment();
             default:
                 return null;

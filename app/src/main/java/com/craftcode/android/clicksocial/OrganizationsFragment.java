@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,9 @@ import com.craftcode.android.clicksocial.models.Organization;
 import com.craftcode.android.clicksocial.models.OrganizationsResults;
 import com.craftcode.android.clicksocial.utils.GeneralConst;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -73,7 +76,7 @@ public class OrganizationsFragment extends Fragment {
 
         // Create recycler view with dynamic height behavior
         final StaggeredGridLayoutManager grid =
-                new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
         mRecyclerView.setLayoutManager(grid);
         mRecyclerView.setHasFixedSize(true);
@@ -92,7 +95,10 @@ public class OrganizationsFragment extends Fragment {
     }
 
     private void getChallenges() {
-        Call<OrganizationsResults> call = apiService.getOrganziations();
+        HashMap searchFilters = new HashMap<String, Serializable>();
+        searchFilters.put("filters", 0);
+
+        Call<OrganizationsResults> call = apiService.getOrganziations(searchFilters);
         call.enqueue(new Callback<OrganizationsResults>() {
 
             @Override

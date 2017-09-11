@@ -1,7 +1,10 @@
 package com.craftcode.android.clicksocial.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import android.widget.TextView;
 
 import com.craftcode.android.clicksocial.R;
 import com.craftcode.android.clicksocial.models.Organization;
+import com.craftcode.android.clicksocial.utils.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,12 +46,35 @@ public class OrganizationListAdapter extends RecyclerView.Adapter<OrganizationLi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.mTitle.setText(mOrganizations.get(position).getTitle());
-        holder.mWebsite.setText(mOrganizations.get(position).getWebsite());
-        holder.mModel.setText(mOrganizations.get(position).getModel());
-        holder.mPlace.setText(mOrganizations.get(position).getPlace());
+        holder.mEntity.setText(mOrganizations.get(position).getEntity());
+        holder.mWebsite.setText(mOrganizations.get(position).getWeb());
+        holder.mFederal.setText(mOrganizations.get(position).getFederal_entity());
+        holder.mEmail.setText(mOrganizations.get(position).getEmail());
 
-        Picasso.with(mContext).load(mOrganizations.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
+        // Photo depends from social group
+        String type = mOrganizations.get(position).getType();
+        int resource = 0;
+        if(type.equals("Desarrollo Integral")) {
+            resource = R.drawable.integral;
+            holder.mView.setBackgroundColor(mContext.getResources().getColor(R.color.integral));
+        } else if(type.equals("Sociedad Incluyente")) {
+            resource = R.drawable.incluyente;
+            holder.mView.setBackgroundColor(mContext.getResources().getColor(R.color.include));
+        } else if(type.equals("Alimentación")) {
+            resource = R.drawable.food;
+            holder.mView.setBackgroundColor(mContext.getResources().getColor(R.color.food));
+        } else if(type.equals("Equidad de Género")) {
+            resource = R.drawable.gender;
+            holder.mView.setBackgroundColor(mContext.getResources().getColor(R.color.gender));
+        } else if(type.equals("Profesionalización")) {
+            resource = R.drawable.teamwork;
+            holder.mView.setBackgroundColor(mContext.getResources().getColor(R.color.prof));
+        } else if(type.equals("Investigación")) {
+            resource = R.drawable.research;
+            holder.mView.setBackgroundColor(mContext.getResources().getColor(R.color.investigation));
+        }
+
+        Picasso.with(mContext).load(resource).fit().centerCrop().transform(new CircleTransform()).tag(mContext).into(holder.mThumbnail);
 
 //
 //        holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -76,15 +103,15 @@ public class OrganizationListAdapter extends RecyclerView.Adapter<OrganizationLi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.title)
-        TextView mTitle;
-        @Bind(R.id.website) TextView mWebsite;
+        @Bind(R.id.entity)
+        TextView mEntity;
+        @Bind(R.id.web) TextView mWebsite;
         @Bind(R.id.thumbnail)
         ImageView mThumbnail;
-        @Bind(R.id.model)
-        TextView mModel;
-        @Bind(R.id.place)
-        TextView mPlace;
+        @Bind(R.id.federal_entity)
+        TextView mFederal;
+        @Bind(R.id.email)
+        TextView mEmail;
         public View mView;
 
         public ViewHolder(View itemView) {

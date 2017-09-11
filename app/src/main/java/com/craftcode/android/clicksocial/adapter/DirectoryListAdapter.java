@@ -43,12 +43,10 @@ public class DirectoryListAdapter extends RecyclerView.Adapter<DirectoryListAdap
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.mTitle.setText(mOrganizations.get(position).getTitle());
-        holder.mWebsite.setText(mOrganizations.get(position).getWebsite());
-        holder.mModel.setText(mOrganizations.get(position).getModel());
-        holder.mPlace.setText(mOrganizations.get(position).getPlace());
-
-        Picasso.with(mContext).load(mOrganizations.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
+        holder.mSocialReason.setText(mOrganizations.get(position).getSocial_reason());
+        holder.mFigure.setText(mOrganizations.get(position).getFigure());
+        holder.mEmails.setText(mOrganizations.get(position).getEmails());
+        holder.mFederalEntity.setText(mOrganizations.get(position).getFederal_entity());
 
     }
 
@@ -66,15 +64,13 @@ public class DirectoryListAdapter extends RecyclerView.Adapter<DirectoryListAdap
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.title)
-        TextView mTitle;
-        @Bind(R.id.website) TextView mWebsite;
-        @Bind(R.id.thumbnail)
-        ImageView mThumbnail;
-        @Bind(R.id.model)
-        TextView mModel;
-        @Bind(R.id.place)
-        TextView mPlace;
+        @Bind(R.id.social_reason)
+        TextView mSocialReason;
+        @Bind(R.id.figure) TextView mFigure;
+        @Bind(R.id.federal_entity)
+        TextView mFederalEntity;
+        @Bind(R.id.emails)
+        TextView mEmails;
         public View mView;
 
         public ViewHolder(View itemView) {
