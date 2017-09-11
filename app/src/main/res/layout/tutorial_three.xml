@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange200"
+    android:background="@color/photo_placeholder"
 
     >
 
     <ImageView
         android:layout_width="220dp"
         android:layout_height="220dp"
-        android:src="@drawable/preview"
+        android:src="@drawable/back_img"
         android:layout_gravity="center"
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"

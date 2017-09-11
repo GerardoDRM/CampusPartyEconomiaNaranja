@@ -9,28 +9,53 @@ import android.os.Parcelable;
 
 public class Directory implements Parcelable{
 
+
     private String _id;
-    private String title;
-    private String website;
-    private String model;
+    private String social_reason;
+    private String figure;
+    private String emails;
+    private String federal_entity;
     private String place;
-    private String img;
+    private String network;
 
-
-    public String getWebsite() {
-        return website;
+    public String get_id() {
+        return _id;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
-    public String getModel() {
-        return model;
+    public String getSocial_reason() {
+        return social_reason;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setSocial_reason(String social_reason) {
+        this.social_reason = social_reason;
+    }
+
+    public String getFigure() {
+        return figure;
+    }
+
+    public void setFigure(String figure) {
+        this.figure = figure;
+    }
+
+    public String getEmails() {
+        return emails;
+    }
+
+    public void setEmails(String emails) {
+        this.emails = emails;
+    }
+
+    public String getFederal_entity() {
+        return federal_entity;
+    }
+
+    public void setFederal_entity(String federal_entity) {
+        this.federal_entity = federal_entity;
     }
 
     public String getPlace() {
@@ -41,48 +66,36 @@ public class Directory implements Parcelable{
         this.place = place;
     }
 
-    public String get_id() {
-        return _id;
+    public String getNetwork() {
+        return network;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setNetwork(String network) {
+        this.network = network;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
 
     protected Directory(Parcel in) {
         _id = in.readString();
-        title = in.readString();
-        model = in.readString();
-        website = in.readString();
+        social_reason = in.readString();
+        figure = in.readString();
+        emails = in.readString();
         place = in.readString();
-        img = in.readString();
+        federal_entity = in.readString();
+        network = in.readString();
+
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(_id);
-        dest.writeString(title);
-        dest.writeString(model);
-        dest.writeString(website);
+        dest.writeString(social_reason);
+        dest.writeString(figure);
+        dest.writeString(emails);
         dest.writeString(place);
-        dest.writeString(img);
+        dest.writeString(place);
+        dest.writeString(federal_entity);
+        dest.writeString(network);
+
     }
 
     @Override

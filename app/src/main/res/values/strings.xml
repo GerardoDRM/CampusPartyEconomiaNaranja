@@ -48,4 +48,11 @@
     <string name="slogan">Integrando comunidades</string>
     <string name="developer">Powered by CraftCode</string>
     <string name="btn_challenge">Ver Reto</string>
+    <string name="w1">Text One</string>
+    <string name="w3">Text tre</string>
+    <string name="w2">text2</string>
+    <string name="start">Inicio</string>
+    <string name="next">Siguiente</string>
+    <string name="skip">Saltar</string>
+    <string name="preference_file_key">preferences</string>
 </resources>

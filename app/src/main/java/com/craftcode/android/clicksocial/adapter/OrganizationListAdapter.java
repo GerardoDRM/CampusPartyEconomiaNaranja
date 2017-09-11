@@ -49,17 +49,17 @@ public class OrganizationListAdapter extends RecyclerView.Adapter<OrganizationLi
 
         Picasso.with(mContext).load(mOrganizations.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
 
-
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent i = new Intent(mContext, ChallengeActivity.class);
-//                Bundle mBundle = new Bundle();
-//                mBundle.putString(GeneralConst.PROMO_KEY, mOrganizations.get(position).get_id());
-//                i.putExtras(mBundle);
-//                mContext.startActivity(i);
-            }
-        });
+//
+//        holder.mView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                Intent i = new Intent(mContext, ChallengeActivity.class);
+////                Bundle mBundle = new Bundle();
+////                mBundle.putString(GeneralConst.PROMO_KEY, mOrganizations.get(position).get_id());
+////                i.putExtras(mBundle);
+////                mContext.startActivity(i);
+//            }
+//        });
     }
 
     @Override

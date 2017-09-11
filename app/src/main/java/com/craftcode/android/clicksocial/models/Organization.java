@@ -2,6 +2,7 @@ package com.craftcode.android.clicksocial.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.StringBuilderPrinter;
 
 /**
  * Created by gerardo on 14/05/17.
@@ -10,19 +11,37 @@ import android.os.Parcelable;
 public class Organization implements Parcelable{
 
     private String _id;
-    private String title;
-    private String website;
+    private String entity;
+    private String web;
     private String model;
-    private String place;
-    private String img;
+    private String federal_entity;
+    private String email;
+    private String type;
+    private String social_group;
 
 
-    public String getWebsite() {
-        return website;
+    public String get_id() {
+        return _id;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String getEntity() {
+        return entity;
+    }
+
+    public void setEntity(String entity) {
+        this.entity = entity;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
     }
 
     public String getModel() {
@@ -33,56 +52,59 @@ public class Organization implements Parcelable{
         this.model = model;
     }
 
-    public String getPlace() {
-        return place;
+    public String getFederal_entity() {
+        return federal_entity;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setFederal_entity(String federal_entity) {
+        this.federal_entity = federal_entity;
     }
 
-    public String get_id() {
-        return _id;
+    public String getEmail() {
+        return email;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getTitle() {
-        return title;
+    public String getType() {
+        return type;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getImg() {
-        return img;
+    public String getSocial_group() {
+        return social_group;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setSocial_group(String social_group) {
+        this.social_group = social_group;
     }
-
 
     protected Organization(Parcel in) {
         _id = in.readString();
-        title = in.readString();
+        entity = in.readString();
         model = in.readString();
-        website = in.readString();
-        place = in.readString();
-        img = in.readString();
+        web = in.readString();
+        federal_entity = in.readString();
+        type = in.readString();
+
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(_id);
-        dest.writeString(title);
+        dest.writeString(entity);
         dest.writeString(model);
-        dest.writeString(website);
-        dest.writeString(place);
-        dest.writeString(img);
+        dest.writeString(web);
+        dest.writeString(federal_entity);
+        dest.writeString(email);
+        dest.writeString(type);
+        dest.writeString(social_group);
+
     }
 
     @Override
