@@ -131,12 +131,12 @@ public class ChallengeActivity extends AppCompatActivity {
         mChallengeTxt.setText(mChallenge.getChallenge());
         mLikes.setText(String.valueOf(mChallenge.getLikes()));
 
-        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
-        sds.setTimeZone(TimeZone.getDefault());
-        long event_date = mChallenge.getCreation_date();
-        final Date date_s = new Date(event_date * 1000L);
-        mCreation.setText(sds.format(date_s));
+//        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//
+//        sds.setTimeZone(TimeZone.getDefault());
+//        long event_date = mChallenge.getCreation_date();
+//        final Date date_s = new Date(event_date * 1000L);
+//        mCreation.setText(sds.format(date_s));
     }
 
 }

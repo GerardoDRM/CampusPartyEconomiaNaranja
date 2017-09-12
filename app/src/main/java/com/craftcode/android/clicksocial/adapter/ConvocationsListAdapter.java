@@ -51,14 +51,15 @@ public class ConvocationsListAdapter extends RecyclerView.Adapter<ConvocationsLi
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mTitle.setText(mConvocations.get(position).getTitle());
         holder.mDescription.setText(mConvocations.get(position).getDescription());
-        Picasso.with(mContext).load(mConvocations.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
+        if(!mConvocations.get(position).getImg().isEmpty())
+            Picasso.with(mContext).load(mConvocations.get(position).getImg()).fit().centerCrop().tag(mContext).into(holder.mThumbnail);
 
-        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
-        sds.setTimeZone(TimeZone.getDefault());
-        long event_date = mConvocations.get(position).getCreation_date();
-        final Date date_s = new Date(event_date * 1000L);
-        holder.mCreation.setText(sds.format(date_s));
+//        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//
+//        sds.setTimeZone(TimeZone.getDefault());
+//        long event_date = mConvocations.get(position).getCreation_date();
+//        final Date date_s = new Date(event_date * 1000L);
+//        holder.mCreation.setText(sds.format(date_s));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,8 +93,8 @@ public class ConvocationsListAdapter extends RecyclerView.Adapter<ConvocationsLi
         @Bind(R.id.description) TextView mDescription;
         @Bind(R.id.thumbnail)
         ImageView mThumbnail;
-        @Bind(R.id.creation)
-        TextView mCreation;
+//        @Bind(R.id.creation)
+//        TextView mCreation;
         public View mView;
 
         public ViewHolder(View itemView) {

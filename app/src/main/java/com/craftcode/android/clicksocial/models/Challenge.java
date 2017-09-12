@@ -14,7 +14,7 @@ public class Challenge implements Parcelable{
     private String _id;
     private String title;
     private String description;
-    private long creation_date;
+//    private long creation_date;
     private String challenge;
     private String img;
     private int likes;
@@ -44,13 +44,13 @@ public class Challenge implements Parcelable{
         this.description = description;
     }
 
-    public long getCreation_date() {
-        return creation_date;
-    }
-
-    public void setCreation_date(long creation_date) {
-        this.creation_date = creation_date;
-    }
+//    public long getCreation_date() {
+//        return creation_date;
+//    }
+//
+//    public void setCreation_date(long creation_date) {
+//        this.creation_date = creation_date;
+//    }
 
     public String getChallenge() {
         return challenge;
@@ -89,7 +89,6 @@ public class Challenge implements Parcelable{
         title = in.readString();
         description = in.readString();
         challenge = in.readString();
-        creation_date = in.readLong();
         img = in.readString();
         likes = in.readInt();
         address = in.readArrayList(Address.class.getClassLoader());
@@ -101,7 +100,6 @@ public class Challenge implements Parcelable{
         dest.writeString(title);
         dest.writeString(description);
         dest.writeString(challenge);
-        dest.writeLong(creation_date);
         dest.writeString(img);
         dest.writeInt(likes);
         dest.writeTypedList(address);

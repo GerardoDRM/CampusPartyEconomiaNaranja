@@ -186,7 +186,7 @@ public class WelcomeActivity extends AppCompatActivity {
             dotsLayout.addView(dots[i]);
         }
 
-        if (dots.length > 0)
-            dots[currentPage].setTextColor(getResources().getColor(R.color.colorAccent));
+//        if (dots.length > 0)
+//            dots[currentPage].setTextColor(getResources().getColor(R.color.colorAccent));
     }
 }

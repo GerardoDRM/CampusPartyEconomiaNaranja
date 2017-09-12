@@ -118,12 +118,12 @@ public class ConvocationActivity extends AppCompatActivity {
         mDescription.setText(mConvocation.getDescription());
         mWeb.setText(mConvocation.getWeb());
 
-        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
-        sds.setTimeZone(TimeZone.getDefault());
-        long event_date = mConvocation.getCreation_date();
-        final Date date_s = new Date(event_date * 1000L);
-        mCreation.setText(sds.format(date_s));
+//        SimpleDateFormat sds = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//
+//        sds.setTimeZone(TimeZone.getDefault());
+//        long event_date = mConvocation.getCreation_date();
+//        final Date date_s = new Date(event_date * 1000L);
+//        mCreation.setText(sds.format(date_s));
     }
 
 

@@ -12,7 +12,7 @@ public class Convocation implements Parcelable{
     private String _id;
     private String title;
     private String description;
-    private long creation_date;
+//    private long creation_date;
     private String web;
     private String img;
 
@@ -40,13 +40,13 @@ public class Convocation implements Parcelable{
         this.description = description;
     }
 
-    public long getCreation_date() {
-        return creation_date;
-    }
-
-    public void setCreation_date(long creation_date) {
-        this.creation_date = creation_date;
-    }
+//    public long getCreation_date() {
+//        return creation_date;
+//    }
+//
+//    public void setCreation_date(long creation_date) {
+//        this.creation_date = creation_date;
+//    }
 
     public String getChallenge() {
         return web;
@@ -78,7 +78,6 @@ public class Convocation implements Parcelable{
         title = in.readString();
         description = in.readString();
         web = in.readString();
-        creation_date = in.readLong();
         img = in.readString();
     }
 
@@ -88,7 +87,6 @@ public class Convocation implements Parcelable{
         dest.writeString(title);
         dest.writeString(description);
         dest.writeString(web);
-        dest.writeLong(creation_date);
         dest.writeString(img);
     }
 
