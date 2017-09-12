@@ -109,7 +109,6 @@ public class ConvocationsFragment extends Fragment {
 
             @Override
             public void onFailure(Throwable t) {
-                Log.d("ERORRR", t.getMessage());
                 if (!GeneralConst.checkNetwork(getContext()))
                     GeneralConst.showMessageConnection(getContext());
             }

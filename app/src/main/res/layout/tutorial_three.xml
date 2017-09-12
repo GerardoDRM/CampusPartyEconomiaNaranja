@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/photo_placeholder"
+    android:background="@color/colorPrimary">
 
-    >
-
-    <ImageView
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:src="@drawable/back_img"
-        android:layout_gravity="center"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp" />
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:textSize="24sp"
-        android:text="@string/w3"
-        android:layout_below="@+id/imageView"
-        />
+        >
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/teamwork"
+            android:layout_gravity="center"
+            android:id="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="32dp"
+            android:paddingLeft="@dimen/tutorial_padding"
+            android:paddingRight="@dimen/tutorial_padding"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="@string/w2"
+            android:layout_below="@+id/imageView"
+            />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

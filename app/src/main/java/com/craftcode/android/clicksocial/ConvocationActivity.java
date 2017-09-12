@@ -80,7 +80,6 @@ public class ConvocationActivity extends AppCompatActivity {
         }
     }
     private void setUp() {
-        Log.d("Error", "Setup");
         if (mConvocation != null) {
             createView();
         } else {
@@ -103,7 +102,6 @@ public class ConvocationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
-                Log.d("DATA", t.getMessage());
                 if (!GeneralConst.checkNetwork(getApplicationContext()))
                     GeneralConst.showMessageConnection(getApplicationContext());
             }

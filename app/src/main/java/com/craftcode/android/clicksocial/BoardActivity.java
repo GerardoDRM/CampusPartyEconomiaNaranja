@@ -31,7 +31,7 @@ public class BoardActivity extends AppCompatActivity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = new Intent(BoardActivity.this, SearchActivity.class);
+                Intent i = new Intent(BoardActivity.this, WelcomeActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);

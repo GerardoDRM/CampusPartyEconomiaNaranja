@@ -110,13 +110,11 @@ public class SuccessCasesFragment extends Fragment {
                 if (mcases == null) return;
                 mCases.addAll(mcases.getResults());
                 ArrayList<SuccessCase> tmpPromo = new ArrayList<SuccessCase>(mCases);
-                Log.d("ERROR", tmpPromo.size() + "");
                 adapter.refill(tmpPromo);
             }
 
             @Override
             public void onFailure(Throwable t) {
-                Log.d("ERORRR", t.getMessage());
                 if (!GeneralConst.checkNetwork(getContext()))
                     GeneralConst.showMessageConnection(getContext());
             }

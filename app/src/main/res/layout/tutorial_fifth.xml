@@ -12,23 +12,23 @@
         <ImageView
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/internet"
+            android:src="@drawable/megaphone"
             android:layout_gravity="center"
             android:id="@+id/imageView"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp" />
+            android:layout_marginTop="90dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="32dp"
             android:paddingLeft="@dimen/tutorial_padding"
             android:paddingRight="@dimen/tutorial_padding"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:text="@string/w1"
+            android:text="@string/w5"
             android:layout_below="@+id/imageView"
             />
 

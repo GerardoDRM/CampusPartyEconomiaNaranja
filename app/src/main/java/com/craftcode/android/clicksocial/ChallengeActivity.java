@@ -103,7 +103,6 @@ public class ChallengeActivity extends AppCompatActivity {
             public void onResponse(Response<Challenge> response, Retrofit retrofit) {
                 int statusCode = response.code();
                 Challenge challenge = response.body();
-                Log.d("Error", challenge.getTitle() + "");
                 if (challenge == null) return;
                 mChallenge = challenge;
                 createView();
@@ -111,8 +110,6 @@ public class ChallengeActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
-                Log.d("Error", t.getMessage());
-
                 if (!GeneralConst.checkNetwork(getApplicationContext()))
                     GeneralConst.showMessageConnection(getApplicationContext());
             }

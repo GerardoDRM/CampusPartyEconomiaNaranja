@@ -56,10 +56,12 @@ public class WelcomeActivity extends AppCompatActivity {
         layouts = new int[]{
                 R.layout.tutorial_one,
                 R.layout.tutorial_two,
-                R.layout.tutorial_three};
+                R.layout.tutorial_three,
+                R.layout.tutorial_four,
+                R.layout.tutorial_fifth};
 
         // adding bottom dots
-        addBottomDots(0);
+        addBottomDots(5);
 
         tutorialAdapater = new TutorialViewPagerAdapter();
         viewPager.setAdapter(tutorialAdapater);
@@ -161,7 +163,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void goToHome() {
         GeneralConst.setFirstTimeLaunch(GeneralConst.getPreferences(this), false);
-        Intent i = new Intent(this, BoardActivity.class);
+        Intent i = new Intent(this, SearchActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
@@ -180,11 +182,11 @@ public class WelcomeActivity extends AppCompatActivity {
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
-//            dots[i].setTextColor(R.color.cardview_shadow_end_color);
+            dots[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
             dotsLayout.addView(dots[i]);
         }
-//
-//        if (dots.length > 0)
-//            dots[currentPage].setTextColor(colorsActive[currentPage]);
+
+        if (dots.length > 0)
+            dots[currentPage].setTextColor(getResources().getColor(R.color.colorAccent));
     }
 }
